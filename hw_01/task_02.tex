@@ -1,0 +1,98 @@
+\ssr{Задание 2}
+\noindent \textbf{Условие:} Найти объем тела, ограниченного поверхностями $z=x^2, \, z=1-y^2$.
+
+\section*{Решение:}
+
+Дано:
+\begin{itemize}
+	\item $z=x^2$ — параболический цилиндр с образующей, параллельной оси $Oy$, направляющей которого служит парабола в плоскости $xOz$;
+	\item $z=1-y^2$ — параболический цилиндр с образующей, параллельной оси $Ox$, , направляющей которого служит парабола в плоскости $yOz$.
+\end{itemize}
+
+\begin{figure}[H]\label{task_02_01} 
+	\centering
+	\includegraphics[width=0.8\textwidth]{./images/task\_02\_01.png}
+	\caption{Область тела, ограниченная $z=x^2, \, z=1-y^2$}
+	\label{fig:image_02_01}
+\end{figure}
+
+\begin{figure}[H]\label{task_02_02} 
+	\centering
+	\includegraphics[width=0.8\textwidth]{./images/task\_02\_02.png}
+	\caption{Область тела, ограниченная $z=x^2, \, z=1-y^2$. Вид сверху}
+	\label{fig:image_02_02}
+\end{figure}
+
+Объем тела находим по формуле:
+$$V =  \iint_{D} (z_{\text{верх}}(x, y) - z_{\text{нижн}}(x, y)) \,dx \,dy$$
+
+В нашем случае:
+\begin{itemize}
+	\item Верхняя поверхность: $z_{\text{верх}} = 1-y^2$ (параболический цилиндр, ветвями направленный вниз)
+	\item Нижняя поверхность: $z_{\text{нижн}} = x^2$ (параболический цилиндр, ветвями направленный вверх)
+\end{itemize}
+
+Следовательно:
+$$V = \iint_{D} ((1-y^2) - x^2) \,dx \,dy = \iint_{D} (1-(x^2 + y^2)) \,dx \,dy$$
+
+Найдем область интегрирования $D$ — проекцию тела на плоскость $xOy$. Для этого найдем линию пересечения поверхностей:
+\[
+\left\{
+\begin{array}{rcl}
+	z & = & x^2 \\
+	z & = & 1 - y^2
+\end{array}
+\right.
+\Rightarrow
+\begin{array}{rcl}
+	x^2 + y^2 = 1
+\end{array}
+\]
+
+Получили уравнение окружности радиуса 1 с центром в начале координат. Таким образом, область $D$ — это круг (рис. \ref{fig:image_02_03}):
+$$x^2 + y^2 \le 1$$
+
+\begin{figure}[H]\label{task_02_03} 
+	\centering
+	\includegraphics[width=0.8\textwidth]{./images/task\_02\_03.jpg}
+	\caption{Проекция на плоскость $xOy$}
+	\label{fig:image_02_03}
+\end{figure}
+
+Для вычисления интеграла по круговой области удобно перейти к полярным координатам:
+\[
+\left\{
+\begin{array}{rcl}
+	x & = & r \cos \phi \\
+	y & = & r \sin \phi
+\end{array}
+\right.
+\]
+
+Границы интегрирования в полярных координатах:
+\[
+\left\{
+\begin{array}{rcl}
+	0 & \le r \le & 1 \\
+	0 & \le \phi \le & 2 \pi
+\end{array}
+\right.
+\]
+
+Подставляем в интеграл:
+$$V = \int_{0}^{2 \pi} \,d\phi \int_{0}^{1} (1-r^2) r \,dr = \int_{0}^{2 \pi} \,d\phi \int_{0}^{1} (r-r^3) \,dr$$
+
+Вычисляем внутренний интеграл по $r$:
+$$\int_{0}^{1}(r-r^3) \, dr = \Big [ \frac{r^2}{2} - \frac{r^4}{4} \Big]\Biggr|^1_0 = \frac{1}{4}$$
+
+Теперь вычисляем внешний интеграл по $\phi$:
+$$V = \int_0^{2 \pi} \frac{1}{4} \, d\phi = \frac{1}{4} \cdot \phi \Biggr|_0^{2 \pi} = \frac{1}{4} \cdot 2 \pi = \frac{\pi}{2}$$
+
+\begin{center}
+	\fbox{
+		\parbox{\widthof{$\displaystyle \frac{\pi}{2}$} + 4em}{
+			\centering
+			\textbf{Ответ:} $\displaystyle \frac{\pi}{2}$
+		}
+	}
+\end{center}
