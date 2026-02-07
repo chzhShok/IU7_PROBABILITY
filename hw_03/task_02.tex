@@ -1,0 +1,68 @@
+\ssr{Задание 2}
+\noindent \textbf{Условие:} Найти $P(X_2 > 2X_1)$, если $(X_1, X_2) \sim \mathcal{N}(\vec{m}, \Sigma)$, где
+\[
+	\vec{m} = (6, 10), \qquad \Sigma = \begin{pmatrix}
+		0.5 & 0.5 \\
+		0.5 & 1
+	\end{pmatrix}
+\]
+
+\section*{Решение:}
+\textbf{Введем случайную величину}
+
+Обозначим $Z = X_2 - 2X_1$. Тогда событие \(\{X_2 > 2X_1\}\) равносильно \(\{Z > 0\}\).
+
+Поскольку \((X_1, X_2)\) имеет совместное нормальное распределение, любая линейная комбинация компонент распределена нормально.
+Следовательно, \(Z \sim \mathcal{N}(m_Z, \sigma_Z^2)\).
+
+\vspace{10pt}
+
+\textbf{Математическое ожидание \(Z\)}
+\[
+m_Z = \mathcal{M}(Z) = \mathcal{M}(X_2 - 2X_1) = \mathcal{M}(X_2) - 2\mathcal{M}(X_1) = 10 - 2 \cdot 6 = 10 - 12 = -2.
+\]
+
+\textbf{Дисперсия \(Z\)}
+
+Используем формулу дисперсии линейной комбинации:
+\[
+D(Z) = D(X_2) + 4D(X_1) - 4\operatorname{cov}(X_1, X_2).
+\]
+Из матрицы \(\Sigma\):
+\[
+D(X_1) = 0.5, \quad
+D(X_2) = 1, \quad
+\operatorname{cov}(X_1, X_2) = 0.5.
+\]
+Подставляем:
+\[
+D(Z) = 1 + 4 \cdot 0.5 - 4 \cdot 0.5 = 1 + 2 - 2 = 1.
+\]
+
+Таким образом, \(\sigma_Z^2 = 1\).
+
+\vspace{10pt}
+
+\textbf{Распределение} $Z \sim \mathcal{N}(-2, \; 1)$.
+
+\vspace{10pt}
+
+\textbf{Вероятность \(P(Z > 0)\)}
+\[
+P(Z > 0) = 1 - P(Z \le 0) = 1 - \Phi\left( \frac{0 - (-2)}{1} \right) = 1 - \Phi(2),
+\]
+где \(\Phi\) --- функция стандартного нормального распределения.
+
+Из таблицы \(\Phi(2) \approx 0.9772\), поэтому
+\[
+P(Z > 0) \approx 1 - 0.9772 = 0.0228.
+\]
+
+\begin{center}
+	\fbox{
+		\parbox{\widthof{$\displaystyle P(X_2 > 2X_1) \approx 0.0228$} + 4em}{
+			\centering
+			\textbf{Ответ:} $\displaystyle P(X_2 > 2X_1) \approx 0.0228$
+		}
+	}
+\end{center}
